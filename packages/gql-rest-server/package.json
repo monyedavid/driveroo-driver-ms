@@ -1,0 +1,58 @@
+{
+    "name": "@driveroo/driverapp",
+    "version": "0.0.1",
+    "description": "Awesome project developed with TypeScript & GraphQL",
+    "devDependencies": {
+        "@gql2ts/types": "^1.9.0",
+        "@types/jest": "^24.0.15",
+        "@types/node": "^12.0.10",
+        "@types/request": "^2.48.1",
+        "@types/request-promise": "^4.1.44",
+        "gql2ts": "^1.10.1",
+        "jest": "^24.8.0",
+        "ts-jest": "^24.0.2",
+        "ts-node": "^8.3.0",
+        "tslint": "^5.18.0",
+        "tslint-config-prettier": "^1.18.0"
+    },
+    "dependencies": {
+        "@gql2ts/from-schema": "^1.10.1",
+        "axios": "^0.19.0",
+        "clean-deep": "^3.0.2",
+        "dotenv": "^8.0.0",
+        "graphql-import": "^0.7.1",
+        "graphql-request": "^1.8.2",
+        "graphql-tools": "^4.0.5",
+        "graphql-yoga": "^1.18.0",
+        "merge-graphql-schemas": "^1.5.8",
+        "pg": "^7.11.0",
+        "reflect-metadata": "^0.1.13",
+        "request": "^2.88.0",
+        "request-promise": "^4.2.4",
+        "typeorm": "0.2.18",
+        "typescript": "^3.5.2"
+    },
+    "scripts": {
+        "start": "ts-node --files src/index.ts",
+        "start:dev": "NODE_ENV=development nodemon --exec ts-node --files src/index.ts",
+        "test": "NODE_ENV=test jest --watch --detectOpenHandles --no-cache",
+        "gen-schema-types": "ts-node src/scripts/createTypes.ts",
+        "build:server": "rimraf ./build && tsc && copyfiles -u 1 src/**/*.graphql build",
+        "mailer": "ts-node src/mail/index.ts"
+    },
+    "jest": {
+        "globalSetup": "<rootDir>/src/test-utils/callSetUp.js",
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest"
+        },
+        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ]
+    }
+}
