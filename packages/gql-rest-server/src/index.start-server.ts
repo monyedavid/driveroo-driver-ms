@@ -12,13 +12,7 @@ export const startServer = async () => {
             url: request.protocol + "://" + request.get("host"),
             req: request
         })
-    });
-
-    // CREATE TYPEORM CONNECTION BASED ON PROCCESS.ENV{SETUP TEST DEV DB}
-    // const conn: Connection =
-    // 	process.env.NODE_ENV === "test"
-    // 		? await createTestConn(true)
-    // 		: await creatTypeormConnection();
+    });   
 
     const app = await server.start({
         port: process.env.NODE_ENV === "test" ? 0 : 4000

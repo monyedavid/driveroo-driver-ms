@@ -1,0 +1,5 @@
+*
+!./package.json
+!./packages/gql-rest-server/package.json 
+!./packages/gql-rest-server/build
+!./packages/gql-rest-server/.env
