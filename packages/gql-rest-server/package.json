@@ -29,6 +29,7 @@
         "body-parser": "^1.19.0",
         "clean-deep": "^3.0.2",
         "connect-redis": "^3.4.2",
+        "copyfiles": "^2.1.1",
         "dotenv": "^8.0.0",
         "express-rate-limit": "^5.0.0",
         "express-session": "^1.16.2",
@@ -44,12 +45,13 @@
         "morgan": "^1.9.1",
         "rate-limit-redis": "^1.6.0",
         "reflect-metadata": "^0.1.13",
+        "rimraf": "^2.6.3",
         "request": "^2.88.0",
         "request-promise": "^4.2.4",
         "typescript": "^3.5.2"
     },
     "scripts": {
-        "start": "ts-node --files src/index.ts",
+        "start": "ts-node --files build/src/index.ts",
         "start:dev": "NODE_ENV=development nodemon --exec ts-node --files src/index.ts",
         "test": "NODE_ENV=test jest --watch --detectOpenHandles --no-cache",
         "gen-schema-types": "ts-node src/scripts/createTypes.ts",
