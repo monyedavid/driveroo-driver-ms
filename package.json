@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "start": "lerna run start",
+        "start": "lerna run --stream start",
         "start:dev": "lerna run --stream start:dev",
         "build:server": "lerna run build:server",
         "gen-schema-types": "lerna run gen-schema-types"

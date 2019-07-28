@@ -51,7 +51,7 @@
         "typescript": "^3.5.2"
     },
     "scripts": {
-        "start": "ts-node --files build/src/index.ts",
+        "start": "ts-node --files build/index.js",
         "start:dev": "NODE_ENV=development nodemon --exec ts-node --files src/index.ts",
         "test": "NODE_ENV=test jest --watch --detectOpenHandles --no-cache",
         "gen-schema-types": "ts-node src/scripts/createTypes.ts",
