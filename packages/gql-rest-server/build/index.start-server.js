@@ -41,7 +41,7 @@ require("dotenv/config");
 var graphql_yoga_1 = require("graphql-yoga");
 var generateSchema_1 = require("./utils/generateSchema");
 exports.startServer = function () { return __awaiter(_this, void 0, void 0, function () {
-    var server, app;
+    var server, port, app;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -55,8 +55,9 @@ exports.startServer = function () { return __awaiter(_this, void 0, void 0, func
                         });
                     }
                 });
+                port = process.env.PORT || 4000;
                 return [4 /*yield*/, server.start({
-                        port: process.env.NODE_ENV === "test" ? 0 : 4000
+                        port: port
                     })];
             case 1:
                 app = _a.sent();
