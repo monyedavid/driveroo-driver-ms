@@ -18,4 +18,4 @@ ENV NODE_ENV production
 
 EXPOSE 4000
 
-CMD ["node", "build/src/index.js"]
+CMD ["node", "build/index.js"]

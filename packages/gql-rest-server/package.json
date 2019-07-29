@@ -1,7 +1,7 @@
 {
     "name": "@driveroo/driverapp",
-    "version": "0.0.1",
-    "description": "Awesome project developed with TypeScript & GraphQL",
+    "version": "1.0.0",
+    "description": "Driveroo Driver Servie | Main",
     "devDependencies": {
         "@gql2ts/types": "^1.9.0",
         "@types/connect-redis": "^0.0.10",
