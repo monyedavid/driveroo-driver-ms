@@ -1,0 +1,20 @@
+type Subscription {
+    driverDefaultGeo(id: ID!, model: String!): driverDefaultGeo_Result
+}
+
+type PtsDriver implements Driver {
+    firstName: String!
+    lastName: String!
+    mobile: String!
+    email: String!
+    avatar: String!
+    dob: String!
+    primary_location: du_Location
+    secondary_location: du_Location
+    tertiary_location: du_Location
+}
+
+type driverDefaultGeo_Result {
+    id: ID!
+    driver: PtsDriver!
+}

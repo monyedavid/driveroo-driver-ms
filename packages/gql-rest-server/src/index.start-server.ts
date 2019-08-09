@@ -13,7 +13,7 @@ export const startServer = async () => {
     const server = new GraphQLServer({
         schema,
         context: ({ request }) => ({
-            url: request.protocol + "://" + request.get("host"),
+            url: request ? request.protocol + "://" + request.get("host") : "",
             req: request,
             pubsub
         })

@@ -1,7 +1,18 @@
 type Subscription {
-    driverLiveGeo: driverLiveGeo_Result
+    driverLiveGeo(id: ID!, model: String!): driverLiveGeo_Result
+}
+
+type LiveDriver implements Driver {
+    firstName: String!
+    lastName: String!
+    mobile: String!
+    email: String!
+    avatar: String!
+    dob: String!
+    current_location: LiveLocation!
 }
 
 type driverLiveGeo_Result {
-    id: String
+    id: ID!
+    driver: LiveDriver!
 }
