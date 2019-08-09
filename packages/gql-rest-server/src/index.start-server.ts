@@ -36,7 +36,7 @@ export const startServer = async () => {
     // Bind it to port and start listening
     WebSocketServer.listen(ws_port, () =>
         console.log(
-            `Websocket Server is now running on http://localhost:${ws_port}`
+            `Websocket Server is now running on ws://localhost:${ws_port}`
         )
     );
 

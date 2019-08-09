@@ -1,0 +1,17 @@
+{
+    "name": "@driveroo/sockets",
+    "description": "driveroo driver server socket connections | GRAPHQL + REST",
+    "version": "1.0.0",
+    "main": "build/index.js",
+    "typings": "build/index.d.ts",
+    "license": "MIT",
+    "scripts": {
+        "build": "rimraf ./build && tsc"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "rimraf": "^2.6.3",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^3.3.3333"
+    }
+}
