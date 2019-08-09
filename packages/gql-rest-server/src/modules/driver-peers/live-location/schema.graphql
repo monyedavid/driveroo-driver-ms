@@ -1,0 +1,7 @@
+type Subscription {
+    driverLiveGeo: driverLiveGeo_Result
+}
+
+type driverLiveGeo_Result {
+    id: String
+}
