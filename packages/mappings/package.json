@@ -7,7 +7,11 @@
     "scripts": {
         "build": "rimraf ./build && tsc"
     },
-    "dependencies": {},
+    "dependencies": {
+        "dotenv": "^8.0.0",
+        "request": "^2.88.0",
+        "request-promise": "^4.2.4"
+    },
     "devDependencies": {
         "rimraf": "^2.6.3",
         "tslint-config-prettier": "^1.18.0",
