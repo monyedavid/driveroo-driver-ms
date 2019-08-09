@@ -17,5 +17,6 @@ WORKDIR ./packages/gql-rest-server
 ENV NODE_ENV production
 
 EXPOSE 4000
+EXPOSE 5000
 
 CMD ["node", "build/index.js"]
