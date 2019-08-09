@@ -1,6 +1,5 @@
 import { SubscriptionsResolverMaps } from "../../types/graphql-utile";
-
-const SOMETHING_CHANGED_TOPIC = "something_changed";
+import { SOMETHING_CHANGED_TOPIC } from "@driveroo/utils";
 
 export const resolvers: SubscriptionsResolverMaps = {
     Subscription: {
