@@ -1,12 +1,12 @@
-import { PubSub } from "graphql-subscriptions";
+import { SubscriptionsResolverMaps } from "../../types/graphql-utile";
 
-export const pubsub = new PubSub();
 const SOMETHING_CHANGED_TOPIC = "something_changed";
 
-export const resolvers: any = {
+export const resolvers: SubscriptionsResolverMaps = {
     Subscription: {
         somethingChanged: {
-            subscribe: () => pubsub.asyncIterator(SOMETHING_CHANGED_TOPIC)
+            subscribe: (_, __, { pubsub }) =>
+                pubsub.asyncIterator(SOMETHING_CHANGED_TOPIC)
         }
     }
 };

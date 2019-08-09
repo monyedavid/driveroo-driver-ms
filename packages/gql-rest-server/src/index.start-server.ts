@@ -6,6 +6,7 @@ import { execute, subscribe } from "graphql";
 
 import { GraphQLServer } from "graphql-yoga";
 import { genschema } from "./utils/generateSchema";
+import { pubsub } from "@driveroo/sockets";
 
 export const startServer = async () => {
     // Graphql Server
@@ -14,7 +15,8 @@ export const startServer = async () => {
         schema,
         context: ({ request }) => ({
             url: request.protocol + "://" + request.get("host"),
-            req: request
+            req: request,
+            pubsub
         })
     });
 
@@ -40,7 +42,7 @@ export const startServer = async () => {
         )
     );
 
-    const subscriptionServer = SubscriptionServer.create(
+    SubscriptionServer.create(
         {
             schema,
             execute,

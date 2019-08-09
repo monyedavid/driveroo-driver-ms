@@ -1,6 +1,7 @@
 export interface Context {
     url: string;
     req: Express.Request;
+    pubsub: any;
 }
 
 export type Resolver = (
@@ -21,5 +22,13 @@ export type GRAQPHQLmiddlewareFunc = (
 export interface ResolverMap {
     [key: string]: {
         [key: string]: Resolver;
+    };
+}
+
+export interface SubscriptionsResolverMaps {
+    [key: string]: {
+        [key: string]: {
+            [key: string]: Resolver;
+        };
     };
 }
