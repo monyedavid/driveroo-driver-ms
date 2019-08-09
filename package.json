@@ -4,6 +4,7 @@
         "start": "lerna run --stream start",
         "start:dev": "lerna run --stream start:dev",
         "build:server": "lerna run build:server",
+        "build:extras": "lerna run build",
         "gen-schema-types": "lerna run gen-schema-types"
     },
     "workspaces": [
