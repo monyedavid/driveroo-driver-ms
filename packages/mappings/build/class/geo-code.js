@@ -62,7 +62,6 @@ var heremaps_Geocode = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         uri = this.urlConstructor(params, "pa");
-                        console.log(uri, "geocde :) uri");
                         return [4 /*yield*/, rp.get(uri)];
                     case 1:
                         result = _a.sent();
