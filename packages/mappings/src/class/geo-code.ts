@@ -40,7 +40,7 @@ export class heremaps_Geocode {
      */
     public async gc_Partial_Address(params: HereMaps.gcpa) {
         const uri = this.urlConstructor(params, "pa");
-        let result = await rp.get(uri);
+        let result: HereMaps._results = await rp.get(uri);
 
         try {
             return { ok: true, result };

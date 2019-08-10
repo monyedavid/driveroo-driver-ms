@@ -15,7 +15,7 @@ export declare class heremaps_Geocode {
      */
     gc_Partial_Address(params: HereMaps.gcpa): Promise<{
         ok: boolean;
-        result: any;
+        result: HereMaps._results;
     } | {
         ok: boolean;
         result?: undefined;
