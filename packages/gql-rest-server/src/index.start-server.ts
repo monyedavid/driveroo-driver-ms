@@ -4,7 +4,7 @@ import { GraphQLServer } from "graphql-yoga";
 import { genschema } from "./utils/generateSchema";
 import { pubsub } from "@driveroo/sockets";
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4100;
 const ws_port = process.env.ws_port || 5000;
 
 export const startServer = async () => {
@@ -22,6 +22,6 @@ export const startServer = async () => {
     const app = await server.start({
         port
     });
-    console.log("Server is running on localhost:4000");
+    console.log(`Server is running on localhost:${port}`);
     return app;
 };

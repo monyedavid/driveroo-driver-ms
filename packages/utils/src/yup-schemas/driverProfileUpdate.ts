@@ -7,6 +7,12 @@ const locationSchema = yup.object().shape({
     state: yup.string()
 });
 
+const bank_ = yup.object().shape({
+    account_number: yup.string(),
+    account_name: yup.string(),
+    name: yup.string()
+});
+
 export const driverUpdateschema = yup.object().shape({
     dob: yup.string(),
     mothers_maiden_name: yup.string(),
@@ -17,11 +23,7 @@ export const driverUpdateschema = yup.object().shape({
         .string()
         .min(11)
         .max(11),
-    bank_account_number: yup.string(),
-    bank_code: yup.string(),
-    bank_firstname: yup.string(),
-    bank_middletname: yup.string(),
-    bank_lastname: yup.string()
+    bank_: yup.array(bank_)
 });
 
 export const driverUpdateBvn = yup.object().shape({
@@ -47,3 +49,5 @@ export const reviewDriverSchema = yup.object().shape({
     rate: yup.string(),
     message: yup.string()
 });
+
+export const includeBanks = yup.object().shape({ bank_: yup.array(bank_) });
