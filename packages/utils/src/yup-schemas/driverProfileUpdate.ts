@@ -23,3 +23,27 @@ export const driverUpdateschema = yup.object().shape({
     bank_middletname: yup.string(),
     bank_lastname: yup.string()
 });
+
+export const driverUpdateBvn = yup.object().shape({
+    bank_bvn: yup
+        .string()
+        .min(11)
+        .max(11)
+});
+
+export const LiveLocationSchema = yup.object().shape({
+    long: yup.string(),
+    lat: yup.string()
+});
+
+export const updatePSTLocationSchema = yup.object().shape({
+    primary_location: locationSchema,
+    secondary_location: locationSchema,
+    tertiary_location: locationSchema
+});
+
+export const reviewDriverSchema = yup.object().shape({
+    userId: yup.string(),
+    rate: yup.string(),
+    message: yup.string()
+});

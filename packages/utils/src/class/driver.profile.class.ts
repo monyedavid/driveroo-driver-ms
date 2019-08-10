@@ -9,7 +9,7 @@ export class DriverProfile {
         this.url = url;
     }
 
-    async firstUpdate(params: DRIVER.IUpDriverParams, session: any) {
+    public async firstUpdate(params: DRIVER.IUpDriverParams, tokenValues: any) {
         // do the data validation
         try {
             await driverUpdateschema.validate(params, {
@@ -33,11 +33,11 @@ export class DriverProfile {
             };
 
             const user: any = await DriverModel.findOne({
-                _id: session.userId
+                _id: tokenValues.userId
             });
             if (user && user.active) {
                 const updatedUser: any = await DriverModel.findOneAndUpdate(
-                    { _id: session.userId },
+                    { _id: tokenValues.userId },
                     { $set: updateData },
                     { new: true }
                 );
@@ -78,4 +78,12 @@ export class DriverProfile {
             }
         ];
     }
+
+    public async updateBvn(bvn: string) {}
+
+    public async updateLiveLocation(bvn: string) {}
+
+    public async updatePSTLocation() {}
+
+    public async reviewDriver() {}
 }

@@ -8,15 +8,16 @@
         "build": "rimraf ./build && tsc"
     },
     "dependencies": {
-        "yup": "^0.26.10",
+        "mongoose": "^5.6.9",
         "request": "^2.88.0",
         "request-promise": "^4.2.4",
-        "mongoose": "^5.6.9"
+        "yup": "^0.26.10"
     },
     "devDependencies": {
         "@types/mongoose": "^5.5.12",
         "@types/request": "^2.48.2",
         "@types/request-promise": "^4.1.44",
+        "@types/yup": "^0.26.22",
         "rimraf": "^2.6.3",
         "tslint-config-prettier": "^1.18.0",
         "typescript": "^3.3.3333"

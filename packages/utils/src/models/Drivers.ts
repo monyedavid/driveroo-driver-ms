@@ -5,7 +5,11 @@ const DriverReview = new Schema({
     userId: {
         type: Schema.Types.ObjectId,
         ref: "EmplyeeUsers"
-    }
+    },
+    rate: {
+        type: String
+    },
+    message: String
 });
 
 // Create Schema
