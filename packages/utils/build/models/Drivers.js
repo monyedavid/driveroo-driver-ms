@@ -12,6 +12,17 @@ var DriverReview = new Schema({
     },
     message: String
 });
+var bankDetailsSchema = new Schema({
+    account_number: {
+        type: String
+    },
+    account_name: {
+        type: String
+    },
+    name: {
+        type: String
+    }
+});
 // Create Schema
 var DriverSchema = new Schema({
     active: {
@@ -82,28 +93,8 @@ var DriverSchema = new Schema({
         long: String,
         lat: String
     },
+    bank_: [bankDetailsSchema],
     bank_bvn: {
-        type: String
-    },
-    bank_: {
-        type: String
-    },
-    bank_slug: {
-        type: String
-    },
-    bank_account_number: {
-        type: String
-    },
-    bank_code: {
-        type: String
-    },
-    bank_firstname: {
-        type: String
-    },
-    bank_middletname: {
-        type: String
-    },
-    bank_lastname: {
         type: String
     },
     resolved_bvn_data: {

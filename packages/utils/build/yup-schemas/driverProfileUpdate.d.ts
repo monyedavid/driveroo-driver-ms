@@ -21,11 +21,11 @@ export declare const driverUpdateschema: yup.ObjectSchema<yup.Shape<object, {
         state: any;
     }>;
     bank_bvn: string;
-    bank_account_number: string;
-    bank_code: string;
-    bank_firstname: string;
-    bank_middletname: string;
-    bank_lastname: string;
+    bank_: yup.Shape<object, {
+        account_number: any;
+        account_name: any;
+        name: any;
+    }>[];
 }>>;
 export declare const driverUpdateBvn: yup.ObjectSchema<yup.Shape<object, {
     bank_bvn: string;
@@ -58,4 +58,11 @@ export declare const reviewDriverSchema: yup.ObjectSchema<yup.Shape<object, {
     userId: string;
     rate: string;
     message: string;
+}>>;
+export declare const includeBanks: yup.ObjectSchema<yup.Shape<object, {
+    bank_: yup.Shape<object, {
+        account_number: any;
+        account_name: any;
+        name: any;
+    }>[];
 }>>;

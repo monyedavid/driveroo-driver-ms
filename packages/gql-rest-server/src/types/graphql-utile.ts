@@ -1,8 +1,16 @@
+interface User {
+    _id: string;
+    userfullname: string;
+    mobile: string;
+}
+
 export interface Context {
     url: string;
     req: Express.Request;
     token: string;
     pubsub: any;
+    loggedIn?: boolean;
+    user?: User;
 }
 
 export type Resolver = (
