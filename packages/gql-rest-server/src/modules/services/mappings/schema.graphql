@@ -1,0 +1,17 @@
+type Query {
+    generateCo_ordinates(
+        partial_address: gco_partial_address
+        ff_addreess: gco_ff_adsress
+    ): String
+}
+
+type gco_partial_address {
+    country: String!
+    housenumber: String!
+    city: String!
+    street: String!
+}
+
+type gco_ff_adsress {
+    fft: String!
+}

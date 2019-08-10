@@ -24,6 +24,7 @@ interface IQuery {
 __typename: "Query";
 driverLocationUpdates: string | null;
 driverProfileLocationUpdates: string | null;
+generateCo_ordinates: string | null;
 bye: string | null;
 }
 
@@ -33,6 +34,24 @@ driverId: string;
 
 interface IDriverProfileLocationUpdatesOnQueryArguments {
 driverId: string;
+}
+
+interface IGenerateCoOrdinatesOnQueryArguments {
+partial_address?: IGcoPartialAddress | null;
+ff_addreess?: IGcoFfAdsress | null;
+}
+
+interface IGcoPartialAddress {
+__typename: "gco_partial_address";
+country: string;
+housenumber: string;
+city: string;
+street: string;
+}
+
+interface IGcoFfAdsress {
+__typename: "gco_ff_adsress";
+fft: string;
 }
 
 interface ISubscription {
