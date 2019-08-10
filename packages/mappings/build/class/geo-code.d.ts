@@ -1,5 +1,5 @@
 export declare class heremaps_Geocode {
-    url?: string;
+    url: string;
     options: {
         headers?: {
             [key: string]: string;

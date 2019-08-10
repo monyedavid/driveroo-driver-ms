@@ -1,7 +1,7 @@
 import * as rp from "request-promise";
 
 export class heremaps_Geocode {
-    url?: string;
+    url: string;
     options: {
         headers?: {
             [key: string]: string;

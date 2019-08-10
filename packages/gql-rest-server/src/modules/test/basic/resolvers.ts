@@ -9,6 +9,7 @@ import { createMiddleWare } from "../../../utils/createMiddleWare";
 export const resolvers: ResolverMap = {
     Query: {
         bye: createMiddleWare(tokenMiddleware, async (_, __, context) => {
+            console.log(context.loggedIn);
             return context.mssg ? context.mssg : "meh";
         })
     }
