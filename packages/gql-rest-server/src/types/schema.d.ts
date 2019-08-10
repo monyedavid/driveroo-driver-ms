@@ -42,7 +42,6 @@ ff_addreess?: IGcoFfAdsress | null;
 }
 
 interface IGcoPartialAddress {
-__typename: "gco_partial_address";
 country: string;
 housenumber: string;
 city: string;
@@ -50,7 +49,6 @@ street: string;
 }
 
 interface IGcoFfAdsress {
-__typename: "gco_ff_adsress";
 fft: string;
 }
 

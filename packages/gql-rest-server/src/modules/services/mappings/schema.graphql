@@ -5,13 +5,13 @@ type Query {
     ): String
 }
 
-type gco_partial_address {
+input gco_partial_address {
     country: String!
     housenumber: String!
     city: String!
     street: String!
 }
 
-type gco_ff_adsress {
+input gco_ff_adsress {
     fft: String!
 }
