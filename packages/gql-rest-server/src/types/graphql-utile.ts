@@ -2,6 +2,7 @@ interface User {
     _id: string;
     userfullname: string;
     mobile: string;
+    model: string;
 }
 
 export interface Context {

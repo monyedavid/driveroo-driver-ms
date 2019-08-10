@@ -50,7 +50,8 @@ exports.decodeRegToken = function (encrypt_id, redis) { return __awaiter(_this, 
                 _a.label = 2;
             case 2:
                 _a.trys.push([2, 4, , 5]);
-                return [4 /*yield*/, jsonwebtoken_1.verify(CRID, process.env.MICROSERVICE_TOKEN_SECRET)];
+                return [4 /*yield*/, jsonwebtoken_1.verify(CRID, process.env
+                        .MICROSERVICE_TOKEN_SECRET)];
             case 3:
                 decodedvalue = _a.sent();
                 returnValue = {
