@@ -23,8 +23,6 @@ export class DriverProfile {
             params.bank_bvn
         );
 
-        console.log(bvnVerfication, "BVN VERIFICATION");
-
         if (bvnVerfication.status) {
             const updateData = {
                 bank_: "",
