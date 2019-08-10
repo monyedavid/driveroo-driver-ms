@@ -8,8 +8,8 @@ import { createMiddleWare } from "../../../utils/createMiddleWare";
 
 export const resolvers: ResolverMap = {
     Query: {
-        bye: createMiddleWare(tokenMiddleware, async (_, __, ___) => {
-            return "token";
+        bye: createMiddleWare(tokenMiddleware, async (_, __, context) => {
+            return context.mssg ? context.mssg : "meh";
         })
     }
 };

@@ -12,6 +12,7 @@ export interface Context {
     pubsub: any;
     loggedIn?: boolean;
     user?: User;
+    mssg?: string;
 }
 
 export type Resolver = (
