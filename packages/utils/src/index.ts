@@ -1,11 +1,14 @@
 import * as mongoose from "mongoose";
 
 mongoose
-    .connect(process.env.MONGODB_URI as string, {
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useFindAndModify: false
-    })
+    .connect(
+        process.env.MONGODB_URI ? (process.env.MONGODB_URI as string) : "",
+        {
+            useNewUrlParser: true,
+            useCreateIndex: true,
+            useFindAndModify: false
+        }
+    )
     .then(() => console.log("MDB connected"))
     .catch(err => console.log(err));
 

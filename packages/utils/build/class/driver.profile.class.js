@@ -54,7 +54,7 @@ var DriverProfile = /** @class */ (function () {
     function DriverProfile(url) {
         this.url = url;
     }
-    DriverProfile.prototype.firstUpdate = function (params, session) {
+    DriverProfile.prototype.firstUpdate = function (params, tokenValues) {
         return __awaiter(this, void 0, void 0, function () {
             var error_1, bvnVerfication, updateData, user, updatedUser;
             return __generator(this, function (_a) {
@@ -76,12 +76,12 @@ var DriverProfile = /** @class */ (function () {
                         if (!bvnVerfication.status) return [3 /*break*/, 8];
                         updateData = __assign({ bank_: "" }, params, { resolved_bvn_data: __assign({}, bvnVerfication.data) });
                         return [4 /*yield*/, Drivers_1.DriverModel.findOne({
-                                _id: session.userId
+                                _id: tokenValues.userId
                             })];
                     case 5:
                         user = _a.sent();
                         if (!(user && user.active)) return [3 /*break*/, 7];
-                        return [4 /*yield*/, Drivers_1.DriverModel.findOneAndUpdate({ _id: session.userId }, { $set: updateData }, { new: true })];
+                        return [4 /*yield*/, Drivers_1.DriverModel.findOneAndUpdate({ _id: tokenValues.userId }, { $set: updateData }, { new: true })];
                     case 6:
                         updatedUser = _a.sent();
                         return [2 /*return*/, [
@@ -117,7 +117,27 @@ var DriverProfile = /** @class */ (function () {
             });
         });
     };
+    DriverProfile.prototype.updateBvn = function (bvn) {
+        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
+            return [2 /*return*/];
+        }); });
+    };
+    DriverProfile.prototype.updateLiveLocation = function (bvn) {
+        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
+            return [2 /*return*/];
+        }); });
+    };
+    DriverProfile.prototype.updatePSTLocation = function () {
+        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
+            return [2 /*return*/];
+        }); });
+    };
+    DriverProfile.prototype.reviewDriver = function () {
+        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
+            return [2 /*return*/];
+        }); });
+    };
     return DriverProfile;
 }());
 exports.DriverProfile = DriverProfile;
-//# sourceMappingURL=driver.class.js.map
+//# sourceMappingURL=driver.profile.class.js.map

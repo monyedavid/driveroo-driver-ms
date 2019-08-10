@@ -1,7 +1,7 @@
 export declare class DriverProfile {
     url?: string;
     constructor(url?: string);
-    firstUpdate(params: DRIVER.IUpDriverParams, session: any): Promise<{
+    firstUpdate(params: DRIVER.IUpDriverParams, tokenValues: any): Promise<{
         path: string;
         message: string;
     }[] | {
@@ -18,4 +18,8 @@ export declare class DriverProfile {
         tertiary_location: any;
         bvn: any;
     }[]>;
+    updateBvn(bvn: string): Promise<void>;
+    updateLiveLocation(bvn: string): Promise<void>;
+    updatePSTLocation(): Promise<void>;
+    reviewDriver(): Promise<void>;
 }

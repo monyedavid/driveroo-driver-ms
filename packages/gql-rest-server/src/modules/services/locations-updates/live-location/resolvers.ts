@@ -1,5 +1,4 @@
-import { ResolverMap } from "../../../types/graphql-utile";
-import { SOMETHING_CHANGED_TOPIC } from "@driveroo/utils";
+import { ResolverMap } from "../../../../types/graphql-utile";
 
 export const resolvers: ResolverMap = {
     Query: {

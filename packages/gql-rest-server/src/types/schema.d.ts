@@ -22,9 +22,9 @@ column: number;
 
 interface IQuery {
 __typename: "Query";
-bye: string | null;
 driverLocationUpdates: string | null;
 driverProfileLocationUpdates: string | null;
+bye: string | null;
 }
 
 interface IDriverLocationUpdatesOnQueryArguments {

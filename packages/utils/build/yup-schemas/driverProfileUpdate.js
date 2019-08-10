@@ -23,4 +23,24 @@ exports.driverUpdateschema = yup.object().shape({
     bank_middletname: yup.string(),
     bank_lastname: yup.string()
 });
+exports.driverUpdateBvn = yup.object().shape({
+    bank_bvn: yup
+        .string()
+        .min(11)
+        .max(11)
+});
+exports.LiveLocationSchema = yup.object().shape({
+    long: yup.string(),
+    lat: yup.string()
+});
+exports.updatePSTLocationSchema = yup.object().shape({
+    primary_location: locationSchema,
+    secondary_location: locationSchema,
+    tertiary_location: locationSchema
+});
+exports.reviewDriverSchema = yup.object().shape({
+    userId: yup.string(),
+    rate: yup.string(),
+    message: yup.string()
+});
 //# sourceMappingURL=driverProfileUpdate.js.map
