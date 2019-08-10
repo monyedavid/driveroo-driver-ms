@@ -44,7 +44,7 @@ var heremaps_formatter = /** @class */ (function () {
     heremaps_formatter.prototype._format = function (heremapresults) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                console.log(heremapresults, "GEO | CO-ORDINATES");
+                console.log(heremapresults["Response"], "GEO | CO-ORDINATES");
                 return [2 /*return*/, heremapresults.Response.View[0].Result[0].Location
                         .DisplayPosition];
             });
