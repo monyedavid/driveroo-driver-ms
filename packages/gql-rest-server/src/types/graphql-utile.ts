@@ -1,6 +1,7 @@
 export interface Context {
     url: string;
     req: Express.Request;
+    token: string;
     pubsub: any;
 }
 

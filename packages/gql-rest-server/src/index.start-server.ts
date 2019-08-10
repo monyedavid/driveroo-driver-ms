@@ -14,6 +14,7 @@ export const startServer = async () => {
         schema,
         context: ({ request }) => ({
             url: request ? request.protocol + "://" + request.get("host") : "",
+            token: request ? request.get("Authorization") : "",
             req: request,
             pubsub
         })
