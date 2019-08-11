@@ -1,2 +1,1 @@
-export const redisessionprefix = "sess:";
-export const userseesionidPrefix = "usesrSids:";
+// CONSTANTS SIGNIFICANT TO ONLY THESE PACKAGE

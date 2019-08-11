@@ -10,8 +10,9 @@ export const resolvers: ResolverMap = {
             async (
                 _,
                 { partial_address }: GQL.IGenerateCoOrdinatesOnQueryArguments,
-                context
+                { req }
             ) => {
+                console.log(req.session, "DOES SESSION EXIST");
                 const co_ordinates = await new heremaps_Geocode().gc_Partial_Address(
                     partial_address
                 );
