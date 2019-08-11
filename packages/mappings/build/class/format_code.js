@@ -41,12 +41,20 @@ var heremaps_formatter = /** @class */ (function () {
     /**
      * _format   for geo code HereMaps._results
      */
-    heremaps_formatter.prototype._format = function (heremapresults) {
+    heremaps_formatter.prototype._format = function (heremapresults, avergae) {
+        if (avergae === void 0) { avergae = false; }
         return __awaiter(this, void 0, void 0, function () {
-            var sol;
+            var sol, DisplayPositionAverage, Result;
             return __generator(this, function (_a) {
                 sol = JSON.parse(heremapresults);
-                return [2 /*return*/, sol.Response.View[0].Result[0].Location.DisplayPosition];
+                DisplayPositionAverage = [];
+                Result = sol.Response.View[0].Result;
+                if (!avergae)
+                    return [2 /*return*/, Result[0].Location.DisplayPosition];
+                Result.forEach(function (resObj) {
+                    DisplayPositionAverage.push(resObj.Location.DisplayPosition);
+                });
+                return [2 /*return*/, DisplayPositionAverage];
             });
         });
     };
