@@ -39,7 +39,7 @@ var heremaps_formatter = /** @class */ (function () {
     function heremaps_formatter() {
     }
     /**
-     * _format   for geo code
+     * _format   for geo code HereMaps._results
      */
     heremaps_formatter.prototype._format = function (heremapresults) {
         return __awaiter(this, void 0, void 0, function () {

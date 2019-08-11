@@ -1,6 +1,6 @@
 export declare class heremaps_formatter {
     /**
-     * _format   for geo code
+     * _format   for geo code HereMaps._results
      */
     _format(heremapresults: any): Promise<HereMaps.co_ordinates>;
     /**
