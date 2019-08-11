@@ -2,4 +2,10 @@
 !./package.json
 !./packages/gql-rest-server/package.json 
 !./packages/gql-rest-server/build
+!./packages/mappings/package.json 
+!./packages/mappings/build
+!./packages/sockets/package.json 
+!./packages/sockets/build
+!./packages/utils/package.json 
+!./packages/utils/build
 !./packages/gql-rest-server/.env
