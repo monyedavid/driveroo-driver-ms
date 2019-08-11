@@ -1,5 +1,2 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.redisessionprefix = "sess:";
-exports.userseesionidPrefix = "usesrSids:";
+// CONSTANTS SIGNIFICANT TO ONLY THESE PACKAGE
 //# sourceMappingURL=constant.js.map

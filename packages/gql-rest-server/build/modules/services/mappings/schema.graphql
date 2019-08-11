@@ -1,0 +1,21 @@
+type Query {
+    generateCo_ordinates(
+        partial_address: gco_partial_address
+        ff_addreess: gco_ff_adsress
+        avergaes: Boolean
+        ffa: Boolean
+    ): [gco_response_union!]
+}
+
+union gco_response_union = gco_response | Error
+
+input gco_partial_address {
+    country: String!
+    housenumber: String!
+    city: String!
+    street: String!
+}
+
+input gco_ff_adsress {
+    fft: String!
+}

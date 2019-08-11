@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -36,67 +47,40 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-require("reflect-metadata");
-require("dotenv/config");
-var session = require("express-session");
-var connectRedis = require("connect-redis");
-var graphql_yoga_1 = require("graphql-yoga");
-var generateSchema_1 = require("./utils/generateSchema");
-var sockets_1 = require("@driveroo/sockets");
-var cache_1 = require("./cache");
 var utils_1 = require("@driveroo/utils");
-var port = process.env.PORT || 4100;
-var RedisStore = connectRedis(session);
-var sessionSecret = process.env.SESSION_SECRET;
-var inProd = process.env.NODE_ENV === "production";
-exports.startServer = function () { return __awaiter(_this, void 0, void 0, function () {
-    var schema, server, app;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+exports.default = (function (resolver, parent, args, context, info) { return __awaiter(_this, void 0, void 0, function () {
+    var _a, invalid, decodedvalue;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                schema = generateSchema_1.genschema();
-                server = new graphql_yoga_1.GraphQLServer({
-                    schema: schema,
-                    context: function (_a) {
-                        var request = _a.request;
-                        return ({
-                            url: request ? request.protocol + "://" + request.get("host") : "",
-                            token: request ? request.get("Authorization") : "",
-                            req: request,
-                            pubsub: sockets_1.pubsub
-                        });
-                    }
-                });
-                // session redis config
-                // session redis config
-                server.express.set("trust proxy", 1); // trust first proxy
-                server.express.use(session({
-                    store: new RedisStore({
-                        client: cache_1.redis,
-                        prefix: utils_1.redisessionprefix
-                    }),
-                    name: "DRIVERBOT",
-                    secret: sessionSecret,
-                    resave: false,
-                    saveUninitialized: false,
-                    cookie: {
-                        httpOnly: !inProd,
-                        maxAge: 1000 * 60 * 60 * 24 * 7,
-                        secure: false
-                    }
-                }));
-                return [4 /*yield*/, server.start({
-                        cors: {
-                            credentials: true,
-                            origin: "*"
-                        },
-                        port: port
-                    })];
+                if (!context.token) return [3 /*break*/, 9];
+                return [4 /*yield*/, utils_1.decodeRegToken(context.token.split(" ")[1])];
             case 1:
-                app = _a.sent();
-                console.log("Server is running on localhost:" + port);
-                return [2 /*return*/, app];
+                _a = _b.sent(), invalid = _a.invalid, decodedvalue = _a.decodedvalue;
+                if (!!invalid) return [3 /*break*/, 5];
+                if (!(decodedvalue.exp < Date.now() / 1000)) return [3 /*break*/, 3];
+                return [4 /*yield*/, resolver(parent, args, __assign({}, context, { loggedIn: false, mssg: "expired token signature detected" }), info)];
+            case 2: return [2 /*return*/, _b.sent()];
+            case 3: return [4 /*yield*/, resolver(parent, args, __assign({}, context, { loggedIn: true, user: {
+                        _id: decodedvalue._id,
+                        userfullname: decodedvalue.userfullname,
+                        mobile: decodedvalue.mobile,
+                        model: decodedvalue.model
+                    } }), info)];
+            case 4: 
+            // middleware
+            return [2 /*return*/, _b.sent()];
+            case 5:
+                if (!invalid) return [3 /*break*/, 7];
+                return [4 /*yield*/, resolver(parent, args, __assign({}, context, { loggedIn: false, mssg: "invalid token signature detetcted" }), info)];
+            case 6: 
+            // middleware
+            return [2 /*return*/, _b.sent()];
+            case 7: return [4 /*yield*/, resolver(parent, args, __assign({}, context, { loggedIn: false, mssg: "retry login" }), info)];
+            case 8: return [2 /*return*/, _b.sent()];
+            case 9: return [4 /*yield*/, resolver(parent, args, __assign({}, context, { loggedIn: false, mssg: "no token detected" }), info)];
+            case 10: return [2 /*return*/, _b.sent()];
         }
     });
-}); };
-//# sourceMappingURL=index.start-server.js.map
+}); });
+//# sourceMappingURL=auth.token.js.map

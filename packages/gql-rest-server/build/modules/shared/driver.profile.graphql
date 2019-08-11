@@ -1,0 +1,29 @@
+type du_Location {
+    address: String!
+    landmark: String!
+    city: String!
+    state: String!
+    lat: String!
+    long: String!
+}
+
+interface Driver {
+    firstName: String!
+    lastName: String!
+    mobile: String!
+    email: String!
+    avatar: String!
+    dob: String!
+}
+
+type LiveLocation {
+    lat: String!
+    long: String!
+    last_Seen: dLs
+}
+
+type dLs {
+    lat: String!
+    long: String!
+    updatedAt: String!
+}
