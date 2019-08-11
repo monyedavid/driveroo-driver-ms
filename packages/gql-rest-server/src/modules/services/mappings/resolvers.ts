@@ -16,14 +16,10 @@ export const resolvers: ResolverMap = {
                     partial_address
                 );
 
-                const displayLocations = await new heremaps_formatter()._format(
+                return await new heremaps_formatter()._format(
                     co_ordinates.result,
                     true
                 );
-
-                console.log(displayLocations);
-
-                return context.mssg ? context.mssg : "meh";
             }
         )
     }

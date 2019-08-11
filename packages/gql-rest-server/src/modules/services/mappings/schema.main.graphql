@@ -1,0 +1,24 @@
+type gco_response {
+    co_ordinates: gco_response_coOrdinates
+    address: gco_response_address
+}
+
+type gco_response_coOrdinates {
+    Latitude: String
+    Longitude: String
+}
+
+type gco_response_address {
+    Label: String
+    Country: String
+    State: String
+    County: String
+    City: String
+    Street: String
+    AdditionalData: [_Locations_Address_data_addy]
+}
+
+type _Locations_Address_data_addy {
+    value: String
+    key: String
+}
