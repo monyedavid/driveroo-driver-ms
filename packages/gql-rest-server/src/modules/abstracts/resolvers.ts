@@ -9,5 +9,12 @@ export const resolvers: ResolverMap = {
 
             return "PtsDriver";
         }
+    },
+    gco_response_union: {
+        __resolveType: obj => {
+            if (obj.path) return "Error";
+
+            return "gco_response";
+        }
     }
 };

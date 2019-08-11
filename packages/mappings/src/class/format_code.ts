@@ -6,7 +6,7 @@ export class heremaps_formatter {
         const sol: HereMaps._results = JSON.parse(heremapresults);
         let DisplayPositionAverage = [];
 
-        if (sol.Response.View.length > 1) {
+        if (sol.Response.View.length >= 1) {
             const Result = sol.Response.View[0].Result;
             if (!avergae)
                 return [

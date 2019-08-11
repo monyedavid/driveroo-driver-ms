@@ -48,7 +48,7 @@ var heremaps_formatter = /** @class */ (function () {
             return __generator(this, function (_a) {
                 sol = JSON.parse(heremapresults);
                 DisplayPositionAverage = [];
-                if (sol.Response.View.length > 1) {
+                if (sol.Response.View.length >= 1) {
                     Result = sol.Response.View[0].Result;
                     if (!avergae)
                         return [2 /*return*/, [
