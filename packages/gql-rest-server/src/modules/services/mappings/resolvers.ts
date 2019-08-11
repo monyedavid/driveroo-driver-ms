@@ -17,8 +17,7 @@ export const resolvers: ResolverMap = {
                 );
 
                 return await new heremaps_formatter()._format(
-                    co_ordinates.result,
-                    true
+                    co_ordinates.result
                 );
             }
         )
