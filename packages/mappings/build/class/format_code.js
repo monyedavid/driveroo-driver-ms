@@ -48,19 +48,29 @@ var heremaps_formatter = /** @class */ (function () {
             return __generator(this, function (_a) {
                 sol = JSON.parse(heremapresults);
                 DisplayPositionAverage = [];
-                Result = sol.Response.View[0].Result;
-                if (!avergae)
-                    return [2 /*return*/, {
-                            co_ordinates: Result[0].Location.DisplayPosition,
-                            address: Result[0].Location.Address
-                        }];
-                Result.forEach(function (resObj) {
-                    DisplayPositionAverage.push({
-                        co_ordinates: resObj.Location.DisplayPosition,
-                        address: resObj.Location.Address
+                if (sol.Response.View.length > 1) {
+                    Result = sol.Response.View[0].Result;
+                    if (!avergae)
+                        return [2 /*return*/, [
+                                {
+                                    co_ordinates: Result[0].Location.DisplayPosition,
+                                    address: Result[0].Location.Address
+                                }
+                            ]];
+                    Result.forEach(function (resObj) {
+                        DisplayPositionAverage.push({
+                            co_ordinates: resObj.Location.DisplayPosition,
+                            address: resObj.Location.Address
+                        });
                     });
-                });
-                return [2 /*return*/, DisplayPositionAverage];
+                    return [2 /*return*/, DisplayPositionAverage];
+                }
+                return [2 /*return*/, [
+                        {
+                            path: "View",
+                            message: "Co-ordinates are non existent"
+                        }
+                    ]];
             });
         });
     };

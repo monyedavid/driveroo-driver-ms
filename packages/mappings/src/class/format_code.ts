@@ -6,21 +6,32 @@ export class heremaps_formatter {
         const sol: HereMaps._results = JSON.parse(heremapresults);
         let DisplayPositionAverage = [];
 
-        const Result = sol.Response.View[0].Result;
-        if (!avergae)
-            return {
-                co_ordinates: Result[0].Location.DisplayPosition,
-                address: Result[0].Location.Address
-            };
+        if (sol.Response.View.length > 1) {
+            const Result = sol.Response.View[0].Result;
+            if (!avergae)
+                return [
+                    {
+                        co_ordinates: Result[0].Location.DisplayPosition,
+                        address: Result[0].Location.Address
+                    }
+                ];
 
-        Result.forEach(resObj => {
-            DisplayPositionAverage.push({
-                co_ordinates: resObj.Location.DisplayPosition,
-                address: resObj.Location.Address
+            Result.forEach(resObj => {
+                DisplayPositionAverage.push({
+                    co_ordinates: resObj.Location.DisplayPosition,
+                    address: resObj.Location.Address
+                });
             });
-        });
 
-        return DisplayPositionAverage;
+            return DisplayPositionAverage;
+        }
+
+        return [
+            {
+                path: "View",
+                message: "Co-ordinates are non existent"
+            }
+        ];
     }
 
     /**
