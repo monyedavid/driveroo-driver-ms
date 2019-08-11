@@ -43,10 +43,10 @@ var heremaps_formatter = /** @class */ (function () {
      */
     heremaps_formatter.prototype._format = function (heremapresults) {
         return __awaiter(this, void 0, void 0, function () {
+            var sol;
             return __generator(this, function (_a) {
-                console.log(heremapresults["Response"], "GEO | CO-ORDINATES");
-                return [2 /*return*/, heremapresults.Response.View[0].Result[0].Location
-                        .DisplayPosition];
+                sol = JSON.parse(heremapresults);
+                return [2 /*return*/, sol.Response.View[0].Result[0].Location.DisplayPosition];
             });
         });
     };

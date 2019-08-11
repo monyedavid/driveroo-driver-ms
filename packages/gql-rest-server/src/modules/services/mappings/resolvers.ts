@@ -12,11 +12,11 @@ export const resolvers: ResolverMap = {
                 { partial_address }: GQL.IGenerateCoOrdinatesOnQueryArguments,
                 context
             ) => {
-                const co_ordinates = await new heremaps_Geocode().gc_Partial_Address(
-                    partial_address
+                const displayLocatons = await new heremaps_formatter()._format(
+                    await new heremaps_Geocode().gc_Partial_Address(
+                        partial_address
+                    )
                 );
-
-                await new heremaps_formatter()._format(co_ordinates.result);
 
                 return context.mssg ? context.mssg : "meh";
             }

@@ -2,10 +2,10 @@ export class heremaps_formatter {
     /**
      * _format   for geo code
      */
-    public async _format(heremapresults: HereMaps._results) {
-        console.log(heremapresults["Response"], "GEO | CO-ORDINATES");
-        return heremapresults.Response.View[0].Result[0].Location
-            .DisplayPosition;
+    public async _format(heremapresults: any) {
+        const sol: HereMaps._results = JSON.parse(heremapresults);
+
+        return sol.Response.View[0].Result[0].Location.DisplayPosition;
     }
 
     /**
