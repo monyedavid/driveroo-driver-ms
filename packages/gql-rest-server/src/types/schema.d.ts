@@ -39,6 +39,8 @@ driverId: string;
 interface IGenerateCoOrdinatesOnQueryArguments {
 partial_address?: IGcoPartialAddress | null;
 ff_addreess?: IGcoFfAdsress | null;
+avergaes?: boolean | null;
+ffa?: boolean | null;
 }
 
 interface IGcoPartialAddress {

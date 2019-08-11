@@ -9,13 +9,31 @@ export const resolvers: ResolverMap = {
             tokenMiddleware,
             async (
                 _,
-                { partial_address }: GQL.IGenerateCoOrdinatesOnQueryArguments,
+                {
+                    partial_address,
+                    avergaes,
+                    ffa,
+                    ff_addreess
+                }: GQL.IGenerateCoOrdinatesOnQueryArguments,
                 { req, loggedIn, mssg }
             ) => {
                 if (!loggedIn) return [{ path: "Auth", message: mssg }];
+
+                if (ffa) {
+                    new heremaps_Geocode().gc_ff_Address(ff_addreess.fft);
+                    return [{ path: "ffa", message: "uncomplete designs" }];
+                }
+
                 const co_ordinates = await new heremaps_Geocode().gc_Partial_Address(
                     partial_address
                 );
+
+                if (avergaes) {
+                    return await new heremaps_formatter()._format(
+                        co_ordinates.result,
+                        true
+                    );
+                }
 
                 return await new heremaps_formatter()._format(
                     co_ordinates.result

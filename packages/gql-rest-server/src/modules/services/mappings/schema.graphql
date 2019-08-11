@@ -2,6 +2,8 @@ type Query {
     generateCo_ordinates(
         partial_address: gco_partial_address
         ff_addreess: gco_ff_adsress
+        avergaes: Boolean
+        ffa: Boolean
     ): [gco_response_union!]
 }
 
