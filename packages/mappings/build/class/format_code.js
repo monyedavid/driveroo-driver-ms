@@ -50,9 +50,15 @@ var heremaps_formatter = /** @class */ (function () {
                 DisplayPositionAverage = [];
                 Result = sol.Response.View[0].Result;
                 if (!avergae)
-                    return [2 /*return*/, Result[0].Location.DisplayPosition];
+                    return [2 /*return*/, {
+                            co_ordinates: Result[0].Location.DisplayPosition,
+                            address: Result[0].Location.Address
+                        }];
                 Result.forEach(function (resObj) {
-                    DisplayPositionAverage.push(resObj.Location.DisplayPosition);
+                    DisplayPositionAverage.push({
+                        co_ordinates: resObj.Location.DisplayPosition,
+                        address: resObj.Location.Address
+                    });
                 });
                 return [2 /*return*/, DisplayPositionAverage];
             });

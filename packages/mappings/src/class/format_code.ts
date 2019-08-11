@@ -7,10 +7,17 @@ export class heremaps_formatter {
         let DisplayPositionAverage = [];
 
         const Result = sol.Response.View[0].Result;
-        if (!avergae) return Result[0].Location.DisplayPosition;
+        if (!avergae)
+            return {
+                co_ordinates: Result[0].Location.DisplayPosition,
+                address: Result[0].Location.Address
+            };
 
         Result.forEach(resObj => {
-            DisplayPositionAverage.push(resObj.Location.DisplayPosition);
+            DisplayPositionAverage.push({
+                co_ordinates: resObj.Location.DisplayPosition,
+                address: resObj.Location.Address
+            });
         });
 
         return DisplayPositionAverage;
