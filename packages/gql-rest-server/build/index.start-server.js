@@ -88,7 +88,11 @@ exports.startServer = function () { return __awaiter(_this, void 0, void 0, func
                 return [4 /*yield*/, server.start({
                         cors: {
                             credentials: true,
-                            origin: "*"
+                            origin: [
+                                process.env.UI_URL_DEV,
+                                process.env.UI_URL,
+                                process.env.AUTH_MS
+                            ]
                         },
                         port: port
                     })];
