@@ -51,7 +51,11 @@ export const startServer = async () => {
     const app = await server.start({
         cors: {
             credentials: true,
-            origin: "*"
+            origin: [
+                process.env.UI_URL_DEV,
+                process.env.UI_URL,
+                process.env.AUTH_MS
+            ]
         },
         port
     });
