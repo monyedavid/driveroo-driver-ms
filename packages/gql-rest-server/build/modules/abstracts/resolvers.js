@@ -15,6 +15,13 @@ exports.resolvers = {
                 return "Error";
             return "gco_response";
         }
+    },
+    findAllDrivers_Errors: {
+        __resolveType: function (obj) {
+            if (obj.path)
+                return "Error";
+            return "DriverResults";
+        }
     }
 };
 //# sourceMappingURL=resolvers.js.map
