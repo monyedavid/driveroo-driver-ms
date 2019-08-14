@@ -16,5 +16,12 @@ export const resolvers: ResolverMap = {
 
             return "gco_response";
         }
+    },
+    findAllDrivers_Errors: {
+        __resolveType: obj => {
+            if (obj.path) return "Error";
+
+            return "DriverResults";
+        }
     }
 };

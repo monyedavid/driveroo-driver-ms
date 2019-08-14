@@ -1,0 +1,54 @@
+type Query {
+    findAllDrivers(id: ID): [findAllDrivers_Errors!]
+}
+
+union findAllDrivers_Errors = DriverResults | Error
+
+type DriverReview {
+    userId: String
+    rate: String
+    message: String
+}
+
+type bankDetailsSchema {
+    account_number: String
+    account_name: String
+    name: String
+}
+
+type Dr_resolved_bvn_data {
+    first_name: String
+    last_name: String
+    dob: String
+    mobile: String
+    bvn: String
+}
+
+type DriverLastSeen {
+    long: String
+    lat: String
+    timeStamp: String
+}
+
+type DriverResults {
+    active: Boolean
+    firstName: String
+    lastName: String
+    mobile: String
+    email: String
+    password: String
+    confirmed: Boolean
+    forgotPasswordLock: Boolean
+    avatar: String
+    dob: String
+    mothers_maiden_name: String
+    primary_location: du_Location
+    secondary_location: du_Location
+    tertiary_location: du_Location
+    bank_: [bankDetailsSchema]
+    bank_bvn: String
+    resolved_bvn_data: Dr_resolved_bvn_data
+    driver_reviews: [DriverReview]
+    driver_rating: String
+    last_seen: DriverLastSeen
+}
