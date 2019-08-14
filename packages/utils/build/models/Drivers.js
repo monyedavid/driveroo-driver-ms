@@ -97,6 +97,10 @@ var DriverSchema = new Schema({
     bank_bvn: {
         type: String
     },
+    processing: {
+        type: Number,
+        default: 0
+    },
     resolved_bvn_data: {
         first_name: {
             type: String
