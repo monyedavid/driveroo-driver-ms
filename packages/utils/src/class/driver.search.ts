@@ -1,7 +1,7 @@
 import { DriverModel } from "../models/Drivers";
 
 export class DriverSearch {
-    public async read({ query }) {
+    public async read(query?: any) {
         if (query.id) {
             const doc = await DriverModel.findOne({
                 _id: query.id
