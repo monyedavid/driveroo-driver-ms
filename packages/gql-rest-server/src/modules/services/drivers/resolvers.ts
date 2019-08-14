@@ -9,7 +9,9 @@ export const resolvers: ResolverMap = {
             tokenMiddleware,
             async (_, __, { req, loggedIn, mssg }) => {
                 if (!loggedIn) return [{ path: "Auth", message: mssg }];
-                return await new DriverSearch().read();
+                const DriverData = await new DriverSearch().read();
+
+                return DriverData;
             }
         )
     }
