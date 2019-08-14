@@ -38,15 +38,23 @@ var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var auth_token_1 = require("../../middleware/auth.token");
 var createMiddleWare_1 = require("../../../utils/createMiddleWare");
+var utils_1 = require("@driveroo/utils");
 exports.resolvers = {
     Query: {
         findAllDrivers: createMiddleWare_1.createMiddleWare(auth_token_1.default, function (_, __, _a) {
             var req = _a.req, loggedIn = _a.loggedIn, mssg = _a.mssg;
             return __awaiter(_this, void 0, void 0, function () {
+                var DriverData;
                 return __generator(this, function (_b) {
-                    if (!loggedIn)
-                        return [2 /*return*/, [{ path: "Auth", message: mssg }]];
-                    return [2 /*return*/];
+                    switch (_b.label) {
+                        case 0:
+                            if (!loggedIn)
+                                return [2 /*return*/, [{ path: "Auth", message: mssg }]];
+                            return [4 /*yield*/, new utils_1.DriverSearch().read()];
+                        case 1:
+                            DriverData = _b.sent();
+                            return [2 /*return*/, DriverData];
+                    }
                 });
             });
         })

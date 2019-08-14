@@ -7,6 +7,15 @@ type du_Location {
     long: String!
 }
 
+type du_Location_null {
+    address: String
+    landmark: String
+    city: String
+    state: String
+    lat: String
+    long: String
+}
+
 interface Driver {
     firstName: String!
     lastName: String!
