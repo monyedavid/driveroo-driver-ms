@@ -1,6 +1,4 @@
 /// <reference types="mongoose" />
 export declare class DriverSearch {
-    read(query?: any): Promise<import("mongoose").Document[] | {
-        doc: import("mongoose").Document;
-    }[]>;
+    read(query?: any): Promise<import("mongoose").Document[]>;
 }

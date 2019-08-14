@@ -65,9 +65,9 @@ forgotPasswordLock: boolean | null;
 avatar: string | null;
 dob: string | null;
 mothers_maiden_name: string | null;
-primary_location: IDuLocation | null;
-secondary_location: IDuLocation | null;
-tertiary_location: IDuLocation | null;
+primary_location: IDuLocationNull | null;
+secondary_location: IDuLocationNull | null;
+tertiary_location: IDuLocationNull | null;
 bank_: Array<IBankDetailsSchema | null> | null;
 bank_bvn: string | null;
 resolved_bvn_data: IDrResolvedBvnData | null;
@@ -76,14 +76,14 @@ driver_rating: string | null;
 last_seen: IDriverLastSeen | null;
 }
 
-interface IDuLocation {
-__typename: "du_Location";
-address: string;
-landmark: string;
-city: string;
-state: string;
-lat: string;
-long: string;
+interface IDuLocationNull {
+__typename: "du_Location_null";
+address: string | null;
+landmark: string | null;
+city: string | null;
+state: string | null;
+lat: string | null;
+long: string | null;
 }
 
 interface IBankDetailsSchema {
@@ -243,6 +243,16 @@ dob: string;
 primary_location: IDuLocation | null;
 secondary_location: IDuLocation | null;
 tertiary_location: IDuLocation | null;
+}
+
+interface IDuLocation {
+__typename: "du_Location";
+address: string;
+landmark: string;
+city: string;
+state: string;
+lat: string;
+long: string;
 }
 
 interface IResult {

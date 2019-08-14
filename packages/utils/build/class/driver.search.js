@@ -41,19 +41,11 @@ var DriverSearch = /** @class */ (function () {
     }
     DriverSearch.prototype.read = function (query) {
         return __awaiter(this, void 0, void 0, function () {
-            var doc_1, doc;
+            var doc;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (!query.id) return [3 /*break*/, 2];
-                        return [4 /*yield*/, Drivers_1.DriverModel.findOne({
-                                _id: query.id
-                            })];
+                    case 0: return [4 /*yield*/, Drivers_1.DriverModel.find({})];
                     case 1:
-                        doc_1 = _a.sent();
-                        return [2 /*return*/, [{ doc: doc_1 }]];
-                    case 2: return [4 /*yield*/, Drivers_1.DriverModel.find({})];
-                    case 3:
                         doc = _a.sent();
                         return [2 /*return*/, doc];
                 }
