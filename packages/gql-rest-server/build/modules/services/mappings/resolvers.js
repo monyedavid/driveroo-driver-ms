@@ -46,24 +46,29 @@ exports.resolvers = {
             var partial_address = _a.partial_address, avergaes = _a.avergaes, ffa = _a.ffa, ff_addreess = _a.ff_addreess;
             var req = _b.req, loggedIn = _b.loggedIn, mssg = _b.mssg;
             return __awaiter(_this, void 0, void 0, function () {
-                var co_ordinates;
+                var co_ordinates_fft, co_ordinates;
                 return __generator(this, function (_c) {
                     switch (_c.label) {
                         case 0:
                             if (!loggedIn)
                                 return [2 /*return*/, [{ path: "Auth", message: mssg }]];
-                            if (ffa) {
-                                new heremaps_1.heremaps_Geocode().gc_ff_Address(ff_addreess.fft);
-                                return [2 /*return*/, [{ path: "ffa", message: "uncomplete designs" }]];
-                            }
-                            return [4 /*yield*/, new heremaps_1.heremaps_Geocode().gc_Partial_Address(partial_address)];
+                            if (!ffa) return [3 /*break*/, 5];
+                            return [4 /*yield*/, new heremaps_1.heremaps_Geocode().gc_ff_Address(ff_addreess.fft)];
                         case 1:
-                            co_ordinates = _c.sent();
+                            co_ordinates_fft = _c.sent();
                             if (!avergaes) return [3 /*break*/, 3];
-                            return [4 /*yield*/, new heremaps_1.heremaps_formatter()._format(co_ordinates.result, true)];
+                            return [4 /*yield*/, new heremaps_1.heremaps_formatter()._format(co_ordinates_fft.result, true)];
                         case 2: return [2 /*return*/, _c.sent()];
-                        case 3: return [4 /*yield*/, new heremaps_1.heremaps_formatter()._format(co_ordinates.result)];
+                        case 3: return [4 /*yield*/, new heremaps_1.heremaps_formatter()._format(co_ordinates_fft.result)];
                         case 4: return [2 /*return*/, _c.sent()];
+                        case 5: return [4 /*yield*/, new heremaps_1.heremaps_Geocode().gc_Partial_Address(partial_address)];
+                        case 6:
+                            co_ordinates = _c.sent();
+                            if (!avergaes) return [3 /*break*/, 8];
+                            return [4 /*yield*/, new heremaps_1.heremaps_formatter()._format(co_ordinates.result, true)];
+                        case 7: return [2 /*return*/, _c.sent()];
+                        case 8: return [4 /*yield*/, new heremaps_1.heremaps_formatter()._format(co_ordinates.result)];
+                        case 9: return [2 /*return*/, _c.sent()];
                     }
                 });
             });
