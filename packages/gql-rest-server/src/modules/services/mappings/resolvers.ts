@@ -13,8 +13,19 @@ export const resolvers: ResolverMap = {
             if (!loggedIn) return [{ path: "Auth", message: mssg }];
 
             if (ffa) {
-                new heremaps_Geocode().gc_ff_Address(ff_addreess.fft);
-                return [{ path: "ffa", message: "uncomplete designs" }];
+                const co_ordinates_fft = await new heremaps_Geocode().gc_ff_Address(
+                    ff_addreess.fft
+                );
+                if (avergaes) {
+                    return await new heremaps_formatter()._format(
+                        co_ordinates_fft.result,
+                        true
+                    );
+                }
+
+                return await new heremaps_formatter()._format(
+                    co_ordinates_fft.result
+                );
             }
 
             const co_ordinates = await new heremaps_Geocode().gc_Partial_Address(

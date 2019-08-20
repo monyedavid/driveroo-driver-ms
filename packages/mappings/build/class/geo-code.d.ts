@@ -23,5 +23,11 @@ export declare class heremaps_Geocode {
     /**
      * gc_ff_Address
      */
-    gc_ff_Address(freeForm: HereMaps.gffa): void;
+    gc_ff_Address(freeForm: HereMaps.gffa): Promise<{
+        ok: boolean;
+        result: HereMaps._results;
+    } | {
+        ok: boolean;
+        result?: undefined;
+    }>;
 }

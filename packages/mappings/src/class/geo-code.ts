@@ -32,6 +32,10 @@ export class heremaps_Geocode {
         }
 
         if (model === "ffa") {
+            const searchtext = params.fft.trim().replace(" ", "%20");
+            return `${this.url}?app_id=${this.appId}&app_code=${
+                this.appCode
+            }&searchtext=${searchtext}`;
         }
     }
 
@@ -52,5 +56,14 @@ export class heremaps_Geocode {
     /**
      * gc_ff_Address
      */
-    public gc_ff_Address(freeForm: HereMaps.gffa) {}
+    public async gc_ff_Address(freeForm: HereMaps.gffa) {
+        const uri = this.urlConstructor({ fft: freeForm }, "ffa");
+        let result: HereMaps._results = await rp.get(uri);
+
+        try {
+            return { ok: true, result };
+        } catch (error) {
+            return { ok: false };
+        }
+    }
 }

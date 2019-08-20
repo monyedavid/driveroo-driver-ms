@@ -50,6 +50,8 @@ var heremaps_Geocode = /** @class */ (function () {
             return this.url + "?app_id=" + this.appId + "&app_code=" + this.appCode + "&country=" + params.country + "&housenumber=" + params.housenumber + "&city=" + params.city + "&street=" + params.street;
         }
         if (model === "ffa") {
+            var searchtext = params.fft.trim().replace(" ", "%20");
+            return this.url + "?app_id=" + this.appId + "&app_code=" + this.appCode + "&searchtext=" + searchtext;
         }
     };
     /**
@@ -79,7 +81,27 @@ var heremaps_Geocode = /** @class */ (function () {
     /**
      * gc_ff_Address
      */
-    heremaps_Geocode.prototype.gc_ff_Address = function (freeForm) { };
+    heremaps_Geocode.prototype.gc_ff_Address = function (freeForm) {
+        return __awaiter(this, void 0, void 0, function () {
+            var uri, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        uri = this.urlConstructor({ fft: freeForm }, "ffa");
+                        return [4 /*yield*/, rp.get(uri)];
+                    case 1:
+                        result = _a.sent();
+                        try {
+                            return [2 /*return*/, { ok: true, result: result }];
+                        }
+                        catch (error) {
+                            return [2 /*return*/, { ok: false }];
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     return heremaps_Geocode;
 }());
 exports.heremaps_Geocode = heremaps_Geocode;
