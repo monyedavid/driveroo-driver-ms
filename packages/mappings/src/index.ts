@@ -1,3 +1,3 @@
-export * from "./class/geo-code";
-export * from "./class/reverse-geo-code";
-export * from "./class/format_code";
+export * from "./class/HereMaps/geo-code";
+export * from "./class/HereMaps/reverse-geo-code";
+export * from "./class/HereMaps/format_code";
