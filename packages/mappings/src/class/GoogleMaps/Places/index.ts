@@ -14,22 +14,21 @@ export class googleMaps_Places {
         this.key = process.env.google_MAps_key_DEV as string;
     }
 
-    private urlConstructor(params: any, model: GoogleMaps.places_types) {}
+    private urlConstructor(
+        params: GoogleMaps.params,
+        model: GoogleMaps.places_types
+    ) {
+        const baseURl = `${this.url}/place/${model}/json?key=${this.key}`;
+        if (model === "autocomplete")
+            return `${baseURl}&input=${params.input}&components=${params.components}&sessiontoken=${params.sessiontoken}`;
 
-    /**
-     * name
-     */
-    public async _search() {
-        try {
-        } catch (error) {}
-    }
+        if (model === "photo")
+            return `${baseURl}maxwidth=${params.maxwidth}&photoreference=${params.photoreference}`;
 
-    /**
-     * name
-     */
-    public async _details() {
-        try {
-        } catch (error) {}
+        if (model === "findplacefromtext")
+            return `${baseURl}&input=${params.input}&inputtype=${params.inputtype}`;
+
+        if (model === "details") return `${baseURl}&placeid=${params.placeid}`;
     }
 
     /**
@@ -41,18 +40,56 @@ export class googleMaps_Places {
     }
 
     /**
-     * name
+     * DETAILS
      */
-    public async _photos() {
+    public async _details(params: GoogleMaps.params) {
+        const uri = this.urlConstructor(params, "details");
+        let result: GoogleMaps.place_details_Params;
         try {
-        } catch (error) {}
+            result = JSON.parse(await rp.get(uri));
+            return { ok: true, result };
+        } catch (error) {
+            return { ok: false };
+        }
     }
 
     /**
      * name
      */
-    public async _autoComplete() {
+    public async _placeSearch(params: GoogleMaps.params) {
+        const uri = this.urlConstructor(params, "findplacefromtext");
+        let result: GoogleMaps.place_Search;
         try {
-        } catch (error) {}
+            result = JSON.parse(await rp.get(uri));
+            return { ok: true, result };
+        } catch (error) {
+            return { ok: false };
+        }
+    }
+
+    /**
+     * name
+     */
+    public async _photos(params: GoogleMaps.params) {
+        const uri = this.urlConstructor(params, "photo");
+        try {
+            return { ok: true, uri };
+        } catch (error) {
+            return { ok: false };
+        }
+    }
+
+    /**
+     * name
+     */
+    public async _autoComplete(params: GoogleMaps.params) {
+        const uri = this.urlConstructor(params, "autocomplete");
+        let result: GoogleMaps.auto_Complete_Params;
+        try {
+            result = JSON.parse(await rp.get(uri));
+            return { ok: true, result };
+        } catch (error) {
+            return { ok: false };
+        }
     }
 }

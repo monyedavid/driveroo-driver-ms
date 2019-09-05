@@ -1,12 +1,22 @@
 declare namespace GoogleMaps {
     type places_types =
-        | "auto_complete"
-        | "photos"
-        | "nearby_search"
-        | "search"
-        | "details";
+        | "autocomplete"
+        | "findplacefromtext"
+        | "details"
+        | "photo"
+        | "nearbysearch";
 
     type subStrings = { length: string; offset: string };
+
+    interface params {
+        input?: string;
+        inputtype?: string;
+        sessiontoken?: string;
+        components?: string;
+        photoreference?: string;
+        maxwidth?: string;
+        placeid?: string;
+    }
 
     type auto_Complete_Params_predictions = {
         description: string;
